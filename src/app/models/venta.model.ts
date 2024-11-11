@@ -3,7 +3,7 @@ import { Producto } from './producto.model';
 import { Cliente } from './cliente.model';
 
 export interface Venta {
-  id?: number;
+  id: number;
   trabajador: Trabajador;
   producto: Producto;
   cliente: Cliente;
