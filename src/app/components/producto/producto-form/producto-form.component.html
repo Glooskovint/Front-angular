@@ -1,0 +1,16 @@
+<p>producto-form works!</p>
+
+<h2>{{ isEdit ? 'Editar Producto' : 'Nuevo Producto' }}</h2>
+<form (ngSubmit)="guardarProducto()">
+    <label for="nombre">Nombre:</label>
+    <input id="nombre" [(ngModel)]="producto.nombre" name="nombre" required />
+
+    <label for="categoria">Categoría:</label>
+    <input id="categoria" [(ngModel)]="producto.categoria" name="categoria" required />
+
+    <label for="precio">Precio:</label>
+    <input id="precio" [(ngModel)]="producto.precio" name="precio" type="number" required />
+
+    <button type="submit">Guardar</button>
+    <button type="button" (click)="cancelar()">Cancelar</button>
+</form>
