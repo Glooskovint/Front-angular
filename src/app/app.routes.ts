@@ -5,6 +5,8 @@ import { ProductoListComponent } from './components/producto/producto-list/produ
 import { ProductoFormComponent } from './components/producto/producto-form/producto-form.component';
 import { ClienteListComponent } from './components/cliente/cliente-list/cliente-list.component';
 import { ClienteFormComponent } from './components/cliente/cliente-form/cliente-form.component';
+import { VentaListComponent } from './components/venta/venta-list/venta-list.component';
+import { VentaFormComponent } from './components/venta/venta-form/venta-form.component';
 
 export const routes: Routes = [
     // Rutas para Trabajadores
@@ -21,6 +23,11 @@ export const routes: Routes = [
     { path: 'clientes', component: ClienteListComponent },
     { path: 'clientes/nuevo', component: ClienteFormComponent },
     { path: 'clientes/editar/:id', component: ClienteFormComponent },
+
+    // Rutas para Ventas
+    { path: 'ventas', component: VentaListComponent },
+    { path: 'ventas/nueva', component: VentaFormComponent },
+    { path: 'ventas/editar/:id', component: VentaFormComponent },
 
     // Redirección inicial
     { path: '', redirectTo: '/trabajadores', pathMatch: 'full' }

@@ -7,5 +7,6 @@ export interface Venta {
   trabajador: Trabajador;
   producto: Producto;
   cliente: Cliente;
+  cantidad: number;
   fecha: Date;
 }

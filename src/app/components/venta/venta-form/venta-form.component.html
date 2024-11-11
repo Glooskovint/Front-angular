@@ -1,0 +1,30 @@
+<p>venta-form works!</p>
+
+<h2>{{ isEdit ? 'Editar Venta' : 'Nueva Venta' }}</h2>
+<form (ngSubmit)="guardarVenta()">
+    <label for="cliente">Cliente:</label>
+    <select id="cliente" [(ngModel)]="venta.cliente.id" name="cliente" required>
+        <option *ngFor="let cliente of clientes" [value]="cliente.id">{{ cliente.nombre }}</option>
+    </select>
+
+    <label for="producto">Producto:</label>
+    <select id="producto" [(ngModel)]="venta.producto.id" name="producto" required>
+        <option *ngFor="let producto of productos" [value]="producto.id">{{ producto.nombre }}</option>
+    </select>
+
+    <label for="trabajador">Trabajador:</label>
+    <select id="trabajador" [(ngModel)]="venta.trabajador.id" name="trabajador" required>
+        <option *ngFor="let trabajador of trabajadores" [value]="trabajador.id">{{ trabajador.nombre }}</option>
+    </select>
+
+    <!-- Campo para la cantidad -->
+    <label for="cantidad">Cantidad:</label>
+    <input id="cantidad" type="number" [(ngModel)]="venta.cantidad" name="cantidad" required min="1" />
+
+    <!-- Campo para la fecha -->
+    <label for="fecha">Fecha:</label>
+    <input id="fecha" type="date" [(ngModel)]="venta.fecha" name="fecha" required />
+
+    <button type="submit">Guardar</button>
+    <button type="button" (click)="cancelar()">Cancelar</button>
+</form>
