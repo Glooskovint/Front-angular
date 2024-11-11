@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TrabajadorService } from '../../../services/trabajador.service';
 import { Trabajador } from '../../../models/trabajador.model';
 import { NgFor } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-trabajador-list',
@@ -13,7 +14,10 @@ import { NgFor } from '@angular/common';
 export class TrabajadorListComponent implements OnInit {
   trabajadores: Trabajador[] = [];
 
-  constructor(private trabajadorService: TrabajadorService) {}
+  constructor(
+    private trabajadorService: TrabajadorService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.cargarTrabajadores();
@@ -28,7 +32,8 @@ export class TrabajadorListComponent implements OnInit {
   }
 
   editarTrabajador(id: number) {
-    // Navegar al formulario de edición (esto se configurará en el enrutador)
+    // Navegamos al formulario de edición del trabajador, pasando el ID
+    this.router.navigate([`/trabajadores/editar/${id}`]);
   }
 
   async eliminarTrabajador(id: number) {
@@ -41,6 +46,7 @@ export class TrabajadorListComponent implements OnInit {
   }
 
   nuevoTrabajador() {
-    // Navegar al formulario para crear un nuevo trabajador
+    //Navegamos a la página de creación de un nuevo trabajador
+    this.router.navigate(['/trabajadores/nuevo']);
   }
 }

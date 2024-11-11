@@ -1,0 +1,13 @@
+<p>trabajador-form works!</p>
+
+<h2>{{ isEdit ? 'Editar Trabajador' : 'Nuevo Trabajador' }}</h2>
+<form (ngSubmit)="guardarTrabajador()">
+    <label for="nombre">Nombre:</label>
+    <input id="nombre" [(ngModel)]="trabajador.nombre" name="nombre" required />
+
+    <label for="rol">Rol:</label>
+    <input id="rol" [(ngModel)]="trabajador.rol" name="rol" required />
+
+    <button type="submit">Guardar</button>
+    <button type="button" (click)="cancelar()">Cancelar</button>
+</form>

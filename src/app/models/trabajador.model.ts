@@ -1,5 +1,5 @@
 export interface Trabajador {
-    id: number;           // opcional en caso de creación
+    id: number;
     nombre: string;
     rol: string;
   }
