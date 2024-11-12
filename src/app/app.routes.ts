@@ -41,7 +41,6 @@ export const routes: Routes = [
     },
 
     // Redirección a login si no está autenticado
-    //{ path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: '**', redirectTo: '/login' }
 ];
 
