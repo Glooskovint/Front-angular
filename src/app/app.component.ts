@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,29 +11,4 @@ import { Router, RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'SisFacturacionFrontend';
-
-  constructor(private router: Router) { }
-
-  clientes() {
-    this.router.navigate(['/clientes']);
-  }
-
-  trabajadores() {
-    this.router.navigate(['/trabajadores']);
-  }
-
-  productos() {
-    this.router.navigate(['/productos']);
-  }
-
-  ventas() {
-    this.router.navigate(['/ventas']);
-  }
-
-  salir() {
-    // Lógica de salida (limpiar sesión, etc.)
-    console.log('Usuario ha salido');
-    this.router.navigate(['/']);
-  }
-
 }

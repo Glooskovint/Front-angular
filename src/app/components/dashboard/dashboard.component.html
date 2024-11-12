@@ -1,0 +1,27 @@
+<main>
+    <label for="enterpriseName" class="title">Empresa</label>
+    <div class="options">
+        <button class="btn" (click)="clientes()">
+            <i class="fas fa-users text-xl"></i>
+            Clientes
+        </button>
+        <button class="btn" (click)="productos()">
+            <i class="fas fa-user-tie text-xl"></i>
+            Producto
+        </button>
+        <button class="btn" (click)="trabajadores()">
+            <i class="fas fa-boxes-stacked text-xl"></i>
+            Trabajadores
+        </button>
+        <button class="btn" (click)="ventas()">
+            <i class="fas fa-dollar-sign text-xl"></i>
+            Ventas
+        </button>
+        <button class="btn-salir" (click)="salir()">
+            <i class="fas fa-arrow-left text-xl"></i>
+            Salir
+        </button>
+    </div>
+</main>
+
+<router-outlet></router-outlet>

@@ -8,28 +8,41 @@ import { ClienteFormComponent } from './components/cliente/cliente-form/cliente-
 import { VentaListComponent } from './components/venta/venta-list/venta-list.component';
 import { VentaFormComponent } from './components/venta/venta-form/venta-form.component';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './guards/auth.guard';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 export const routes: Routes = [
 
-    // Rutas para Trabajadores
-    { path: 'trabajadores', component: TrabajadorListComponent },
-    { path: 'trabajadores/nuevo', component: TrabajadorFormComponent },
-    { path: 'trabajadores/editar/:id', component: TrabajadorFormComponent },
+    // Ruta para el logeo
+    { path: "login", component: LoginComponent },
+    {
+        path: "", component: DashboardComponent, canActivate: [AuthGuard], children: [
+            // Rutas para Trabajadores
+            { path: 'trabajadores', component: TrabajadorListComponent, canActivate: [AuthGuard] },
+            { path: 'trabajadores/nuevo', component: TrabajadorFormComponent, canActivate: [AuthGuard] },
+            { path: 'trabajadores/editar/:id', component: TrabajadorFormComponent, canActivate: [AuthGuard] },
 
-    // Rutas para Productos
-    { path: 'productos', component: ProductoListComponent },
-    { path: 'productos/nuevo', component: ProductoFormComponent },
-    { path: 'productos/editar/:id', component: ProductoFormComponent },
+            // Rutas para Productos
+            { path: 'productos', component: ProductoListComponent, canActivate: [AuthGuard] },
+            { path: 'productos/nuevo', component: ProductoFormComponent, canActivate: [AuthGuard] },
+            { path: 'productos/editar/:id', component: ProductoFormComponent, canActivate: [AuthGuard] },
 
-    // Rutas para Clientes
-    { path: 'clientes', component: ClienteListComponent },
-    { path: 'clientes/nuevo', component: ClienteFormComponent },
-    { path: 'clientes/editar/:id', component: ClienteFormComponent },
+            // Rutas para Clientes
+            { path: 'clientes', component: ClienteListComponent, canActivate: [AuthGuard] },
+            { path: 'clientes/nuevo', component: ClienteFormComponent, canActivate: [AuthGuard] },
+            { path: 'clientes/editar/:id', component: ClienteFormComponent, canActivate: [AuthGuard] },
 
-    // Rutas para Ventas
-    { path: 'ventas', component: VentaListComponent },
-    { path: 'ventas/nueva', component: VentaFormComponent },
-    { path: 'ventas/editar/:id', component: VentaFormComponent },
+            // Rutas para Ventas
+            { path: 'ventas', component: VentaListComponent, canActivate: [AuthGuard] },
+            { path: 'ventas/nueva', component: VentaFormComponent, canActivate: [AuthGuard] },
+            { path: 'ventas/editar/:id', component: VentaFormComponent, canActivate: [AuthGuard] },
+        ]
+    },
+
+    // Redirección a login si no está autenticado
+    //{ path: '', redirectTo: '/login', pathMatch: 'full' },
+    { path: '**', redirectTo: '/login' }
 ];
 
 export const appRouter = provideRouter(routes);
